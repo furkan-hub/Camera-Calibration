@@ -1,7 +1,7 @@
 import cv2 
 import numpy as np
 import pickle
-
+import time
 from hik_camera.hik_camera import HikCamera
 
 import cv2
@@ -28,7 +28,7 @@ cam = HikCamera(ip=ip)
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 
 # Chessboard dimensions
-pattern_size = (6, 19)
+pattern_size = (8,6)
 objp = np.zeros((pattern_size[0] * pattern_size[1], 3), np.float32)
 objp[:, :2] = np.mgrid[0:pattern_size[0], 0:pattern_size[1]].T.reshape(-1, 2)
 
@@ -38,14 +38,15 @@ imgpoints = []  # 2D points in image plane
 min_samples_for_calibration = 15  # Minimum number of samples needed for calibration
 with cam:
     cam["ExposureAuto"] = "Off"
-    cam["ExposureTime"] = 129159
+    cam["ExposureTime"] = 168724.0000
     while True:
         frame = cam.robust_get_frame()
 
 
         frame_copy = np.copy(frame)  # Create a copy of the frame
-        #gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        time.sleep(1)
 
+        #gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         found, corners = cv2.findChessboardCorners(frame, pattern_size)
         if found:
             corners2 = cv2.cornerSubPix(frame, corners, (11, 11), (-1, -1), criteria)

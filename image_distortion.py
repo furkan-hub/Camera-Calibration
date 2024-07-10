@@ -13,12 +13,12 @@ ip = ips[0]
 cam = HikCamera(ip=ip)
 
 # Load calibration data
-with open(r'/home/furkan/Camera Calibration/calibration_data.pkl', 'rb') as f:
+with open(r'/home/furkan/Camera Calibration/calibration_data-4.pkl', 'rb') as f:
     mtx, dist = pickle.load(f)
 
 with cam:
     cam["ExposureAuto"] = "Off"
-    cam["ExposureTime"] = 129159
+    cam["ExposureTime"] = 168159
 
     while True:
         frame = cam.robust_get_frame()  # Get only the frame
