@@ -58,7 +58,7 @@ def calibrate_camera(images, checkerboard_size):
         print("Not enough points for calibration.")
         return None
 
-images = glob.glob(r"/home/furkan/Camera Calibration/calibration-images/*.bmp")
+images = glob.glob(r"/home/furkan/Camera Calibration/images/dist-cal.bmp")
 
 if not images:
     print("No images found.")

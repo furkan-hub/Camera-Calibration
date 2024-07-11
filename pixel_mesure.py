@@ -24,7 +24,7 @@ def click_event(event, x, y, flags, params):
             points = []
 
 # Bir görüntü yükleyin
-img = cv2.imread('images/test-14.bmp')
+img = cv2.imread('images/dist-cal.bmp')
 
 # Pencere boyutunu belirleyin
 window_name = 'image'
