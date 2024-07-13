@@ -2,14 +2,14 @@ import cv2
 import pickle
 
 # Kalibrasyon verilerini pickle dosyasından yükleme
-with open('calibration_data_18x27.pkl', 'rb') as f:
+with open('calibration_data_50mm_14x16.pkl', 'rb') as f:
     calibration_data = pickle.load(f)
 
 camera_matrix = calibration_data['camera_matrix']
 distortion_coefficients = calibration_data['distortion_coefficients']
 
 # Görüntü dosyasının yolunu belirle
-image_path = "/home/furkan/Camera Calibration/images/test-14.bmp"
+image_path = "/home/furkan/Camera Calibration/50mm/test-4.bmp"
 
 # Görüntüyü yükleme
 image = cv2.imread(image_path)
@@ -27,6 +27,6 @@ if image is not None:
     cv2.destroyAllWindows()
 
     # Düzeltme sonucunu kaydetme
-    cv2.imwrite('undistorted_image3.bmp', undistorted_image)
+    cv2.imwrite('undistorted_image10.bmp', undistorted_image)
 else:
     print(f"Failed to load the image: {image_path}")
