@@ -27,6 +27,6 @@ if image is not None:
     cv2.destroyAllWindows()
 
     # Düzeltme sonucunu kaydetme
-    cv2.imwrite('undistorted_image10.bmp', undistorted_image)
+    cv2.imwrite('undistorted_image11.bmp', undistorted_image)
 else:
     print(f"Failed to load the image: {image_path}")
